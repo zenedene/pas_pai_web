@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokoh Islam Pasca-Kemerdekaan</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --card-bg: #fff;
+      --accent: #4b6cb7;
+      --text: #333;
+      --transition: 0.3s;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit:cover;
+      display: block;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+    .btn:hover { background: #395292; }
+    .details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition) ease;
+    }
+    .details.open {
+      max-height: 400px;
+    }
+    .details p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Tokoh Islam Nasional dan Lokal Pasca-Kemerdekaan</h1>
+  <div class="grid" id="cards-container"></div>
+
+  <script>
+    const figures = [
+      { name: 'Hamka (Haji Abdul Malik Karim Amrullah)', img: 'data:image/jpeg;base64,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', bio: 'Hamka lahir pada 17 Februari 1908 di Maninjau, Sumatera Barat. Beliau adalah ulama, sastrawan, dan politisi yang aktif setelah kemerdekaan.', region: 'Aceh, Sumatera Barat, dan Jakarta', works: ['Tafsir Al-Azhar', 'Tenggelamnya Kapal Van Der Wijck', 'Sejarah Umat Islam'], role: 'Menyebarkan pemikiran Islam modern dan menulis karya-karya tafsir serta sastra yang mempengaruhi masyarakat Indonesia pasca-kemerdekaan.' },
+      { name: 'Nurcholish Madjid', img: 'https://upload.wikimedia.org/wikipedia/id/e/e8/Cak_Nur.jpeg', bio: 'Dilahirkan pada 17 Agustus 1939 di Jombang, Jawa Timur. Sering dipanggil Cak Nur, merupakan intelektual pembaharu Islam.', region: 'Yogyakarta dan Jakarta', works: ['Islam, Kemodernan, dan Keindonesiaan', 'Nalar Keagamaan'], role: 'Mendorong dialog lintas agama, memisahkan agama dan politik, serta memperkenalkan konsep Islam ramah dan moderat.' },
+      { name: 'Abdurrahman Wahid (Gus Dur)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/President_Abdurrahman_Wahid_-_Indonesia.jpg/500px-President_Abdurrahman_Wahid_-_Indonesia.jpg', bio: 'Lahir 7 September 1940 di Jombang, Jawa Timur. Tokoh NU, cendekiawan, dan Presiden Indonesia ke-4.', region: 'Nasional', works: ['Pesan-pesan Gus Dur', 'Kebebasan Beragama'], role: 'Memperjuangkan pluralisme dan demokrasi, memperkuat peran organisasi keagamaan dalam membangun toleransi antarumat beragama.' },
+      { name: 'Ahmad Syafi\'i Maarif', img: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Ahmad_Syafii_Maarif_official_portrait.png', bio: 'Lahir 31 Mei 1935 di Sumatera Barat, mantan Ketua Umum PP Muhammadiyah dan intelektual Islam.', region: 'Nasional', works: ['Islam dan Hak Asasi Manusia', 'Agama dan Negara'], role: 'Mendorong modernisasi pemikiran Islam, dialog antarumat, dan pemisahan agama dari urusan negara.' },
+      { name: 'KH. Hasyim Muzadi', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Ahmad_Hasyim_Muzadi.jpg/500px-Ahmad_Hasyim_Muzadi.jpg', bio: 'Lahir 3 Agustus 1944 di Bangil, Jawa Timur. Mantan Ketua Umum PBNU dan pendiri Pesantren Al-Hikam.', region: 'Nasional', works: ['Islahuddin', 'Membangun Umat'], role: 'Mempererat ukhuwah Islamiyah dan lintas agama, serta mengembangkan pendidikan pesantren modern.' },
+      { name: 'Quraish Shihab', img: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Muhammad_Quraish_Shihab.jpg', bio: 'Lahir 16 Februari 1944 di Rappang, Sulawesi Selatan. Cendekiawan tafsir Al-Qur\'an.', region: 'Sulawesi Selatan dan Jakarta', works: ['Tafsir Al-Mishbah', 'Wawasan Al-Qur’an'], role: 'Memperluas pemahaman Qur\'an di kalangan intelektual dan masyarakat umum dengan bahasa yang mudah dipahami.' },
+      { name: 'Aa Gym (Abdullah Gymnastiar)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Aa_Gym%2C_Aagym_Official%2C_45.36.jpg/375px-Aa_Gym%2C_Aagym_Official%2C_45.36.jpg', bio: 'Lahir 29 Agustus 1962 di Bandung. Pendakwah populer dengan metode ceramah interaktif.', region: 'Bandung, Jawa Barat', works: ['Manajemen Hati', 'Mutiara Hati'], role: 'Menghadirkan dakwah yang berorientasi pada motivasi dan manajemen emosi, menarik generasi muda melalui media elektronik.' },
+      { name: 'Habib Luthfi bin Yahya', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Habib_Muhammad_Luthfi_Ali_Yahya.png/330px-Habib_Muhammad_Luthfi_Ali_Yahya.png', bio: 'Lahir 10 November 1947 di Pekalongan, Jawa Tengah. Pemimpin tarekat Ba\'Alawiyyah dan Rais Aam PBNU.', region: 'Jawa Tengah dan Nasional', works: ['Tasawuf dalam Dunia Modern'], role: 'Menghidupkan tradisi tasawuf, mempromosikan ajaran cinta kasih, damai, dan toleransi dalam Islam.' },
+      { name: 'Siti Musdah Mulia', img: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAIMA4QMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAFBgMEAAIHAQj/xABCEAACAQMDAQUFBQQIBQUAAAABAgMABBEFEiExBhMiQVFhcYGRsRQjMkKhB1LB0RUWM1NicpLwJFRjgvEmNHN0sv/EABkBAAMBAQEAAAAAAAAAAAAAAAECAwAEBf/EACMRAAICAgMAAgIDAAAAAAAAAAABAhEhMQMSQRMyBCJCUWH/2gAMAwEAAhEDEQA/AOd/Z2S6ZWbIB6U2aCCCqjpiqtlpEV12Ym7QNLKsouzCIdw24BxnOM5pqsNBWLRLTULaeETysQyXM4ijAyehwTnipUXvFjZ2ai2GH2kk/rVztaGbR/AM/eLx86g7OmRobVpO4Dncp7iXvE4JHDYGRRHXCF0/cSAO8UfWmiIznxDjopHvBqCSZl/8Uz95G0XeZQp+9npUM1uGiDrFuBGQdo6U9GFZ52HX61A11tOeaPTWkB6xLQubTllnjhiBLu4RfaTSvAUHOx1o03eajMvgjOyIH8zeZ/350wXl3NHCIbcFr648MShhkDzbnyraGJbC2g0+LgRgKPMsfM1vpsZmvrm/lB2L9zASeqr1I95+lTeQkmm2EOmW4LZkmx45W6sfM0u9tO1f9DwrFaos2pzj7mEnwxr03tjy+pGKNazqaWdrLczN4UHhH7x9Pea5n3El7qEt9dc3EzZY+g/KB7AKNpDRj22BItKeaR7vUJGuLmVizyN1JojFpaJjavT2Uw2tpux4QMVdFkB5UtllFCythn8gFRyaXGW3EAn3U0NaH0qJ7U+lCzNCo+nJxujHFB9V0vEeUTd7KeZrY/u1QubQN1opiuNiR2b1ibs1rkF/D/Zg7Jkz+NPzD+I91fRcM8ep6YJraTcGjWeBweWBGR+lfPvaHTwitKi49QKf/wBjOvG406bTJm+9sWDxn/pnPHwOfmKrF4INUdKnxe2K3CDxgZx9RVG2b76r9qO6uZIkXKyL3kQz5+YoTZODM2GL7WPljPQ4+AIpJrIoTzXtaqc1sKUBlZWVnNYJ4a1rY1rWMeYr2srKxjl1raPafs3uIGIZhqROQfU5+FMUE0MXY3Tmln02IGRsHUIu8QnJ4AB4NK99HJJA8YDrG+DIBkA488U02N4bbsjpxjvrm3YTMrG2s/tLeZwVwccedNGfZnX+Rw/HClos9nrhf6RsEikt3R4iVNohSM+J+VU9BR3tUC2mKB0M6fxpa0afve0mmsZHn3wZMksPclvHJyU/L7qau0WP6NX/AOdPrVInHyOoCyxUdmjC0YLz5CkjO0ljyaPQWbWundw7ZMcBTPuUfyqlawpc6PBuX8jN7sE4qPtVqlxa6PI9sVSUwFgzDOOCKb0EH+qYPkiz7PQCpuz9pu1hZWXIhXfj29P40h6Pqt9dW2oSJdS94luZA5boQM9K6j2c2No6TRgtLIMOW4Ocn+FLLQ9l1gEZZGx3jEqnvPFeXBSONIUwETw0PNw91r8mwYtLGIc/3kh6Y9g5+Puqlrt+bWydgfG/hT3mpLRRKwHr959vvhHHzBAcY8i3n8q1tbbJGRyPKqls8EHMxOfJV5JqZtYEK5+ztGvq/Wl2VtLAat7cDrV0BfQUCtdfs5fDvCtRe3mSYZRgRWo1m7oPSoGT2Vcxu6Vo6UBijJGD1FVZrZW6LRGQVARQDQsapZK8bjGQfZS32QlbRe3Ni3IhnkMLjoCH4Gfjin66i3AjHWkzWbNoLuC6Uf2Mqy8exgapFk5xtHbWLo1pIQTtm7tiDjAboaku7bbJ3qthPCuMeYBGfp8qilUGyuGByAA4zz5ir906mKNT0Y/UfzIqjOZlJa24rRDW4FSNR7WVleGsY8NeGva1NAx5WVnFZWMImqS3qbo1lWeN4tzmODA2569P1oYrX+ntJJHJeWqM4SXun2FjxxnHXHNN7vLcKz/0eoSa2WMguMCNt5AHt/lQPtNcSDfazKqyNN3qhceEBQuDgcnPnR69dHsxmuRdWW9FlE3arTXEk8ivbbg853SN4pOWx503dosf0aPZMlJfZ8/+pNI/+ov1enTtAM6eoPnKn1qkTyPyF1tIH6Wc6Oc7eEfPr1NDO0I3aLcuAcrGTjPXjpV+wBTSXA5yvp7TUOqRJJod9kDKxNg+3aKf0lH6I5j2ZiZbrVIli8UtnKUijOR4lIAyfaa6b+z66+1aPNMN3dCeRULeYXCjp5cGuSmZtPTUZEkDF7YIm98HLHbx7QOcew10z9nTPadl7iOHbvjeRUUHIU7V/ic0k2VirLelzbLSaRj45p3Y+7OB9DQHVnOoaktujfdwjH/ceasX902mRkN4ixwg9SaqafbP3Zlb8b5bPtNQ7WsHUoUy3BBBbrkBc+bYqxOkMqKrqj59xHypI7RxapL4UleG3Vh3ndjxFfPHtpU1K1S01OeHTb24MKIGilMmdy7cknGPPA9nNPFCTkk9HQLnRbdZTJANuegDZq9o/e2p7t2JFK+i6jq9lBbSan9/bXH9m5GSp8s+8cim2F1lxs8+lZtjRSYw2r5XJraRgvU1BaKwjyelVLu4BOFPNKMeXV/bw/ieqS6vZucCYZ9tVLvTpLw5BwKFy9khK24zOp9lMkhW2MZmVxuR1b2KaD6vAJo8YzWsfZ66sow0E7MR1zUscvfxsrrtkThlNbRk7wdHswf6Mx59xH9BVm5dvszZXCrHGvxYjP0qOzT/AIRl9LdfngVvqrGOAJt3b5Bv+GOB7ao9HP6RouFBDZyNw9x5FSCt7ll2oUXAGVqhfalBYgCVgHPQMcVN4N1t0Xa8oRFq8supvZxWjEIAXdjhUB9fhjAovmshTw15XteGgA8wKyvM17WMKZu9RihKr3UiKu1IlhfgcDjPupd1e/kuHhjnEUKR+GME7VXJ8yx/jio5bh41yZjn/MePhR20jt7TQbe+F1Fbz3TnvJp7Q3OcZ8IAPh9c1opyeT2eaceCNrZroYSPtRpMaTRzhbUDvYm3I3L8g+dO+tgGw58pU+tJekPv7X6e/exyK0AJkjh7lWGX6Kenup21n/2Sj1lWrRPH5ncW2CbIMujsyjPh/jVPUQW0W/U9AjZ9vAonp8mzSCvkVPHxoffg/wBGXg8ijY+Qp/ScfojlWsQIlhaQRspe5n3sjg54BG7d6fip9/Z8ko7NXa97IQxkILcMh2jr8hSh2hIe+gtGDFrW1ChHwQXkYYIPuJ+NPXYkCTT5EIbu2kKpu9AoX5+GuWTuzqhGgHqEcl7Pbk8lDjPIHrTFaWa9wg3cBaBJLyUZ0JU8qHyQflTFZtmFf8oqcdHWVrqyxneN2aW9T7PWV0++W3AfOdwHOfWnVwG/FzVGe3Y9adOhOq9FKXSpZ0EJnlaMdFODijOn2LW+N/OBge+ikcSqchR8qlggaVlHTJzWsWq0T7dlnSpcXGyRpHICjJ58qe9Tsu5scpyfSlCazy/Kg+8ZpgJ2K2p9srqCIvaW4aEME70L4cn2/wAhVG37baqsg36d9oQDJ7pt3GM8Eenn/Cj2pdnbW5Lb42TcMFo/Oq2m6HcWE7yW1yjOwIzOu7bnr5imXUm1Kw52d7T2GsQkQnD4w6N+IGtLmEG73L5+lLDdm7nTNYGoxXKuZDmRUXAz7APKmqyPeXkaEZ3EUHh4HSxk6FAwjgkZ+AEA+gFRs/2yIsjAPHIyMAMjPTHzxUU0hW1mXYWIj3BV6kjoPnWukc6HbjDrII8kP17wgk5+Zp3o5/5EtpObuK4Ph2xSAJg9TnDfqaoala229bjulln4wG5GPdW2m2c1tNLJIqrDIuNmeQ3r8eflU8tozyd6H2sgzUY52NL9ZYKVqklnFKIlV13HvI8+InPkfM4qvf8Aa3SbDuhLJJK0i7lWNMke8VV1uUSxRvb3LCWOXv8A7ojIPmDxQt7iEaZcXWm2SR3krEv3kW4gHOSPTFByM+OVdht0nV4tVXfb2tykY6vMgUD9avn24HxrnXZu7WOSGS5uypRwpVuBg+ZNEtf7RSPe9zp8zpGh2synG4+o9laMheRKNV6OP++le0l/1gvP71vkKynsnYDkNvd9iYtTjQ95NfFS7cEqpYYpjiumtOyel4u9Rty0jANZQLIx5PBDA460IttA1e3/AGeWWnzafMtzFeOzxcMQpLc8E+ophtftNn2cs4V0+6uJFDK6QuisoPmS38K6EkmWnOU4W9lLTGdu1lhJI07nuFBe4XbKx8X4h5H1py1jH2MeyRaWdK0y8TXLO7a2ukiWNQ5nk7x14PDN5nnrTPq0by2WIUZm7xePZSrZHl+gNto82mR02mq953ZsJy52oFIbjPXFX7aGaOyZTG24ZG3bQvV2mtLXLQyZLjG0ckBSTjPuoTdKzcavqjmko7/ULqWTBD3G5TEMJtX0PwzTv2PuFQvbZ8QiWVh6npke/IpK03u237QneHduJ5689PL4Uw9m5jH2gO5fCymHcPLjPy8J/SonU9G98rwalcKSw2SnHi8PJyMDy4IozZXK9yv+WqHapUTUY3UYeWMFxjjI461WtJiiDd+EdamdMcxGP7QPWoJr8YwE3P6UNguGmbCAkevlRNIkjgZguXA601AZJbwysu+Tj/CtEbFPvAWPA60t3Gr3MAwkBcew4q9Y6sZEVsbd/JFagMbJgsqNsPSlq/ijjl2q3i64PnVq21eOIkyH7s9ORVXtCsVxpn2y1kBkhcHjzGcYp2KlRW2g9QPlW0UYBztHxFRW0wlTd+lW4wPWkKUVrq0EsTbV59nB+dD9HjJ1a3U/kOT8BTHs+6PHhPkaFaHAW1WZx5IQPeT/ACp0JJUg8QUje870oFkVVH77Dovz/Srca7YoowTnb4vj1ofq4MdzpttEDtIMjH1PAHFRPKYhNefa2dEk8UeQCemOMZoydM5q9Dht+7R2QA8Zk8sceX0oTrFz3enTGNwr+WT1qxp16LldS7tWJEIba/JBKkEfp+opL7U7ooZTC7Nlc7XPiB9MeVZ00SlJxZl3p2tWiC4iSRjJxuUKR8s8Cq93eXsdlCmoBILqXKuq7WwpGOuOpoHbdv5hqEMc6MyiDuDFnKnj8Xvz50RWxnncSqO/VxnJwEAP1qUsZLwfdVZaS2Bt8Qxr3TRgMMcAnpzQ+TSb/vwsUlszHDKN5y2fIcdaN2G2wtrgXEyAyoSq+0c4NMOladbXFy9wYHaTPdsT+HIHOKyQahNfsKP9VNX/AL79RXtdJ+yn99aynol8cAQvbbs2zYGrw5/7v5VMvaDQ5P7K9iP/AGt/KuHwR/8AFsPIGmzTIS5wo+NVsWjqNrq2n3MqQW1wJJD0G0ip7++t9Ot/tF3IY492N2M9c+VLHZuER3sJ2jg/wNV/2vSPH2U3RyGP/iIxlePWmQK8DjdrdEXO69U5/wCmw/hQDtXrFtq9qjafJM8ESvmWPKbXyMHnrjOD765xoXZqPW42Z9Rfwrk7Xz5+lOf9V20DQ1hha4chiySFjtJPUYzU+SSqisVWQHAJYLfMqhduSMY568df95qK01CSG8tb1ZgirNGzRbM7l4BGfXrWavO0WnzlNxckRqAc+e0D60Ei1FJtQtNPgtzLLbkfesfCABydvnxn40i/sd6Omdq4hsspWIAw6jxnnGOnr1oOiAqVPQ+2juuOz6TayIMjvAePRl60Hh560vpaH1LEVzHabBcFUjbpnoT76M200Ei8SDaf8QoXc2K3Vq8bKCCvANKvd3NpK0adF/KT1o2U4+P5B4uYEb8Qx7xxVL7Ew/A2KXE1mWE7X76P3E/+KIW3aIbPEFZvlWsZ8Eol2TSZrhgbh8gVObWWCLuDISmc4rSz16Bo/vU/0tmp7rUbApxdRj2M2D+tERxktlaFzE2CavQ3CnzoObhZjlM1PHuHlQaMmMIucwOM8eVTdnbfmaYjBZ9in1PTP1+VDbKGS6dYYgScc+ymGw2JOLaL8ECMx9p/2aeCI8slVAvV5g/aiZizbbOyAAB8zk59PTHxrTWN8OgSSENukYZ3JznjGfSlSa8uLzthrv2B276W8ihXIzlEXDeoGG93FNHaa7McVvp/J75gXZx4MDnn5UJxyRi8E3ZxXtra6d9+4iTbk+FsDxEHr8CfKkPXo9YvWEkl1AEJ4hZOF9zDmugafbldHZMkmRGK95+B9xHT0NeyaTZuiJfdymDlRuAK+/zoR0LKDm8HFTpQjuQbrK7juRk6E+mfZTH2WnuEU285zArBsDIKnocD0p91TsZoesL3p0+ItjbuUlcD1BB8JoDHpkPZK1e1e5IRyTG8g3Ej91iBycdK0qaJyg4KwRq8sBuCiysQQNueOPbXTNEkc20ZkhaAygMEJ6DH+/bXMtUlUpNed2sX5FcDhhxg/rTfp/afTm01L2e+ht3hiBuYpWxtbHO3PX2UONAjIaPsEX7z/wCo1lBv636Z/ej/AFD+de1XqNZxy3I+2Nz+Y076KqiJSgwTXOYJwt225seLqfOui9nSWt1I55ojsbtEQieEnqW/gaz9oCodAzIqsizoWDjjzqzpi7biIen8qj7cIsmgSI4yrOmR8aK0L6Cez/Z7TVt3uLW0EUrja7rJtGPcDTBf2yNpRtSBgJgeflXPeyWu6t/VIzPd7XSYgu8YOVyQOg91dA1GQi2B3g+EE8YJOPSpdHFtsdyukcm1JAhi7wgIjd5IrD8RAOMf6qi0yytrd5pYIo0kc5YjJbB6cVNNBPqV13EIdpHXPltTJP8AKmbs92Zit3E91MZ5EbO0DC8Zxn16mkzRa0lkuXoF12btGOVy0WVXjHFCkBjOG69KP6zgaS23ChGXy46ig9yo2pMOR0IrBhLAUQEIv+Whmo2UdwNy+F/WisLq6LUklqHo7KRk4vAlTWlwow6Bl9RVH7Gd3ijI9wNO0umluh/WtV0uQHI8fxodTpX5T9AVjopuU5gZR++xNXF0O0sBuSMM/rj6UxRoypVO78XWmaRLk5ZTB9vb4/EKv29sZmCRjJPSo4yCwVQWZug86OW9t9jQTk5lA4HlWSsjKVIn+70y27tcd+w8ZHlWaSpisbq7fqV2j2/74qhKzOSXOSetHIoQNPtLYDIfxuPZ1+pFOQf+itadn7Ww7TpdQwukk0XeyDfnLn0z06/oKpavY/bO06wv3yJhziQZQgD8vt4pq1Dma4ltkV5YwI+vI88fT5UsyxLb3qXDvMFjQsoc5yxBxj3k0jeTVgI6TdTSWjEqY9sR+7kfcrgHovPDD3dQKER9pLwElbO3CjkmbJY+80Z0W0EdkVRM99/aLMx2SAgHweh6/EUNvNNDOFVtqj16UkcleNxWylH2i1d7hXilRB/domRj4mmm4nivtLD3aqcjdhudvu9tK2oW8FjA8t3dRxRImRIGAOKUrnt+vfw2ulW0s8KfieQhdx9x8vfTdWwc7i44D2vaWJLR5nuHSHoLcqAePKlq0iZotriM+WWXND9f7Vajqc6xrttgpIJQht/wx9Kn7N3F5dTsssq9wGGAseNxPrVYrqjh6MLfYIP+Qi+QrKv/AGSb/mpfkK9rdkP0ZDd6TpdhNLiyikWFztByScMRRfsQwmkkjUYRNpx7TnI+FWdR0S4uZLjuWTa75Ds3+PNTdm9MfRGuZLqaN9+Nojzx5UFyQ67N8fI56wN9kv8AxMXx+lZ2qt2udGkRTghl/wD0KEjU7x7nZpdukixAb5pH2gZ44HmfOg972k1KYPDKx4YCbYinu+cDPHHOP18q3dFIxzkAdntTn0jUV0m1jjLzv4JG5CJtBc+/0+dO1vfi7t5Em5eHau4Z8SkDB59n65rmXZVHuNTs7uUKvdXsqPxz4irc/I0+2ZeGYRN+RjAf8S/kP0+Zqc5tyKRimgDa3EWl9o72KcHuZC7RsSNqYCnH6kCrvZTtKmpx6pd3bJa2UBUxhzhgmCSxJxyQR049Pak9vGKa9dwvOZFDbwnGI/DkjJPPQefn7qi7EaQ2s6qkBuCsMTrLLG35h7F9SfP0PU5qiWCblbo6rq/3mlXPiOPCQQcE+IUMZTEmxxlfSi9yve6XdjAP3T8Y/wB+lV+67+zjmHRgOfhS+lE8FS3mKDqNo86IRXQPnQuWwc8RMd/pUcf2iJgk6FSej/lP8qDRRSvYcEg/ereOQbsUKAnU5ZGxWwuHTBZSN34SeM1kPgKysAMZqg0clw+2McDqx6CvQ7v+786niU8bm6fCmSEcq0TWkUNopC4aU/mapwXlOajVF/NzUjXSREdMscKvmaeiTdmrrEs9vCT95MwCqOp9flzU+t6ubS5lgtxmeNFG0YJGRkHBx6/oKVOy7TXfbO51W5LNbQ2zkHPCYIAAHtBJ+FR6uk0l7cPPHK9xPL4RG5A2HOePYM1LkdIeCth/S7l4tHnuQyu77mR5ABkD0x15yPhQO6kxcySSMgkSFsqWynUZPvOfLmry3fdaWkTPGsrRsI4wuTxjI9hoPd3MRtnkSWIJs2+KLAZvPA9fb7ak3oatjPocmdLi76Ngdi7obo46HBKZ+ePf0raVdy7WX51HbB7fTljDiUoYdqXR8aktxtPs+hra5vO9sre+iTMTgK4/dPr09cg+2mhojNWzlP7SNK2zJdqCMllc+WRjBpLt4nkZRx8T5V2vtRp66zpRSCPvJAGYRt4WyPI+2uSQW8pn7q3iIkXjDr0/lV4ywJ1o8ubSYeAsAUGGCtngHinHsZZ9zZjeCMvkileSw3sgXPesFHoMj610fQo3aJQUG/A/Sg9BSCfdj0rKtdw1ZShLULM2csTg4HNUL84lRR0bORWVledE9Ms9j3Z7KYOSR3h4+ArayhjktLwsgzNFI0hHG44x5V7WV3ROCXpbvtNsodR7PtHbIDPLMJOPxARMR+tCLlmE0BB5w4+AIIrKytLYkBS7XWsJXXrgpmYXyAPk5H3a9PTqaN6JpFhYaxYyWVssLAYyhI4MeT51lZVADVaqrWdxkZyCD7jQvs3I02jW7ynczRZPv5rKyh6Mje9YqAVODVqECaFu8G731lZTDFWMkT7Mnb6ZqxdqsllGXAY5PWsrKYBXiAD4A4qTe3rWVlAzLOSY8+dAhLI+n3VwzEykY3eg9B6V5WURQxYxpDpkfdLt7ySNXx5jxGh2sOyxJOpxKsEjhh1BGzH1NeVlc/MV4yhoxLajcSMcv9qdM+w+VRWUj3FvmY7y8wBLemAOPSsrKHpvA9pcjnv7VnZoY3g2K53Y+9x1PPSq7/c9iEkTG6Xh93iByiE8Hp1NZWUYfUR/Yr6cSssrBmyJumePw+nSk/t7GlvrrTQrskkkbeR54PpXlZTQ9NPwF6XK51O3TI2uzFhgcnmulaGii5UAcVlZTsmxn+zxfu/qaysrKAp//9k=', bio: 'Lahir 3 April 1954 di Bima, Nusa Tenggara Barat. Aktivis hak perempuan dan pakar filsafat agama.', region: 'Nasional', works: ['Women\'s Rights in Islam', 'Electrifying Islam'], role: 'Memperjuangkan kesetaraan gender, reformasi hukum Islam, dan pemberdayaan perempuan dalam masyarakat.' },
+    ];
+
+    const container = document.getElementById('cards-container');
+    figures.forEach((fig, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${fig.img}" alt="${fig.name}">
+        <div class="card-content">
+          <div class="card-title">${fig.name}</div>
+          <button class="btn" data-index="${i}">Details ▲</button>
+          <div class="details" id="details-${i}">
+            <p><strong>Biografi:</strong> ${fig.bio}</p>
+            <p><strong>Wilayah Dakwah:</strong> ${fig.region}</p>
+            <p><strong>Hasil Karya:</strong> ${fig.works.join(', ')}</p>
+            <p><strong>Peran:</strong> ${fig.role}</p>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    container.addEventListener('click', e => {
+      if (e.target.matches('.btn')) {
+        const idx = e.target.dataset.index;
+        const detailEl = document.getElementById(`details-${idx}`);
+        detailEl.classList.toggle('open');
+        e.target.textContent = detailEl.classList.contains('open') ? 'Details ▼' : 'Details ▲';
+      }
+    });
+  </script>
+</body>
+</html>
