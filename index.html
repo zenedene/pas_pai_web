@@ -1,133 +1,2419 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tokoh Islam Pasca-Kemerdekaan</title>
-  <style>
-    :root {
-      --bg: #f9f9f9;
-      --card-bg: #fff;
-      --accent: #4b6cb7;
-      --text: #333;
-      --transition: 0.3s;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      padding: 2rem;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: var(--accent);
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    .card img {
-      width: 100%;
-      height: 300px;
-      object-fit:cover;
-      display: block;
-    }
-    .card-content {
-      padding: 1rem;
-    }
-    .card-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 0.75rem;
-      padding: 0.5rem 1rem;
-      border: none;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background var(--transition);
-    }
-    .btn:hover { background: #395292; }
-    .details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height var(--transition) ease;
-    }
-    .details.open {
-      max-height: 400px;
-    }
-    .details p {
-      margin: 0.5rem 0;
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-    @media (max-width: 600px) {
-      body { padding: 1rem; }
-    }
-  </style>
-</head>
-<body>
-  <h1>Tokoh Islam Nasional dan Lokal Pasca-Kemerdekaan</h1>
-  <div class="grid" id="cards-container"></div>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tokoh Islam Pasca-Kemerdekaan Indonesia</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --gold: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        --dark: #1a1a2e;
+        --darker: #16213e;
+        --light: #ffffff;
+        --gray: #f8fafc;
+        --text-light: #64748b;
+        --text-dark: #334155;
+        --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --border-radius: 20px;
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-  <script>
-    const figures = [
-      { name: 'Hamka (Haji Abdul Malik Karim Amrullah)', img: 'data:image/jpeg;base64,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', bio: 'Hamka lahir pada 17 Februari 1908 di Maninjau, Sumatera Barat. Beliau adalah ulama, sastrawan, dan politisi yang aktif setelah kemerdekaan.', region: 'Aceh, Sumatera Barat, dan Jakarta', works: ['Tafsir Al-Azhar', 'Tenggelamnya Kapal Van Der Wijck', 'Sejarah Umat Islam'], role: 'Menyebarkan pemikiran Islam modern dan menulis karya-karya tafsir serta sastra yang mempengaruhi masyarakat Indonesia pasca-kemerdekaan.' },
-      { name: 'Nurcholish Madjid', img: 'https://upload.wikimedia.org/wikipedia/id/e/e8/Cak_Nur.jpeg', bio: 'Dilahirkan pada 17 Agustus 1939 di Jombang, Jawa Timur. Sering dipanggil Cak Nur, merupakan intelektual pembaharu Islam.', region: 'Yogyakarta dan Jakarta', works: ['Islam, Kemodernan, dan Keindonesiaan', 'Nalar Keagamaan'], role: 'Mendorong dialog lintas agama, memisahkan agama dan politik, serta memperkenalkan konsep Islam ramah dan moderat.' },
-      { name: 'Abdurrahman Wahid (Gus Dur)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/President_Abdurrahman_Wahid_-_Indonesia.jpg/500px-President_Abdurrahman_Wahid_-_Indonesia.jpg', bio: 'Lahir 7 September 1940 di Jombang, Jawa Timur. Tokoh NU, cendekiawan, dan Presiden Indonesia ke-4.', region: 'Nasional', works: ['Pesan-pesan Gus Dur', 'Kebebasan Beragama'], role: 'Memperjuangkan pluralisme dan demokrasi, memperkuat peran organisasi keagamaan dalam membangun toleransi antarumat beragama.' },
-      { name: 'Ahmad Syafi\'i Maarif', img: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Ahmad_Syafii_Maarif_official_portrait.png', bio: 'Lahir 31 Mei 1935 di Sumatera Barat, mantan Ketua Umum PP Muhammadiyah dan intelektual Islam.', region: 'Nasional', works: ['Islam dan Hak Asasi Manusia', 'Agama dan Negara'], role: 'Mendorong modernisasi pemikiran Islam, dialog antarumat, dan pemisahan agama dari urusan negara.' },
-      { name: 'KH. Hasyim Muzadi', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Ahmad_Hasyim_Muzadi.jpg/500px-Ahmad_Hasyim_Muzadi.jpg', bio: 'Lahir 3 Agustus 1944 di Bangil, Jawa Timur. Mantan Ketua Umum PBNU dan pendiri Pesantren Al-Hikam.', region: 'Nasional', works: ['Islahuddin', 'Membangun Umat'], role: 'Mempererat ukhuwah Islamiyah dan lintas agama, serta mengembangkan pendidikan pesantren modern.' },
-      { name: 'Quraish Shihab', img: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Muhammad_Quraish_Shihab.jpg', bio: 'Lahir 16 Februari 1944 di Rappang, Sulawesi Selatan. Cendekiawan tafsir Al-Qur\'an.', region: 'Sulawesi Selatan dan Jakarta', works: ['Tafsir Al-Mishbah', 'Wawasan Al-Qur’an'], role: 'Memperluas pemahaman Qur\'an di kalangan intelektual dan masyarakat umum dengan bahasa yang mudah dipahami.' },
-      { name: 'Aa Gym (Abdullah Gymnastiar)', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Aa_Gym%2C_Aagym_Official%2C_45.36.jpg/375px-Aa_Gym%2C_Aagym_Official%2C_45.36.jpg', bio: 'Lahir 29 Agustus 1962 di Bandung. Pendakwah populer dengan metode ceramah interaktif.', region: 'Bandung, Jawa Barat', works: ['Manajemen Hati', 'Mutiara Hati'], role: 'Menghadirkan dakwah yang berorientasi pada motivasi dan manajemen emosi, menarik generasi muda melalui media elektronik.' },
-      { name: 'Habib Luthfi bin Yahya', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Habib_Muhammad_Luthfi_Ali_Yahya.png/330px-Habib_Muhammad_Luthfi_Ali_Yahya.png', bio: 'Lahir 10 November 1947 di Pekalongan, Jawa Tengah. Pemimpin tarekat Ba\'Alawiyyah dan Rais Aam PBNU.', region: 'Jawa Tengah dan Nasional', works: ['Tasawuf dalam Dunia Modern'], role: 'Menghidupkan tradisi tasawuf, mempromosikan ajaran cinta kasih, damai, dan toleransi dalam Islam.' },
-      { name: 'Siti Musdah Mulia', img: 'data:image/jpeg;base64,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', bio: 'Lahir 3 April 1954 di Bima, Nusa Tenggara Barat. Aktivis hak perempuan dan pakar filsafat agama.', region: 'Nasional', works: ['Women\'s Rights in Islam', 'Electrifying Islam'], role: 'Memperjuangkan kesetaraan gender, reformasi hukum Islam, dan pemberdayaan perempuan dalam masyarakat.' },
-    ];
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    const container = document.getElementById('cards-container');
-    figures.forEach((fig, i) => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="${fig.img}" alt="${fig.name}">
-        <div class="card-content">
-          <div class="card-title">${fig.name}</div>
-          <button class="btn" data-index="${i}">Details ▲</button>
-          <div class="details" id="details-${i}">
-            <p><strong>Biografi:</strong> ${fig.bio}</p>
-            <p><strong>Wilayah Dakwah:</strong> ${fig.region}</p>
-            <p><strong>Hasil Karya:</strong> ${fig.works.join(', ')}</p>
-            <p><strong>Peran:</strong> ${fig.role}</p>
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .floating-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .floating-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-circle:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        left: 10%;
+        animation-delay: -2s;
+      }
+
+      .floating-circle:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        top: 60%;
+        right: 10%;
+        animation-delay: -4s;
+      }
+
+      .floating-circle:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        bottom: 20%;
+        left: 20%;
+        animation-delay: -1s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .header {
+        text-align: center;
+        padding: 80px 0 60px;
+        position: relative;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: var(--gold);
+        border-radius: 2px;
+      }
+
+      .main-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        color: var(--light);
+        margin-bottom: 20px;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 300;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .search-container {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+      }
+
+      .search-box {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 18px 60px 18px 24px;
+        border: none;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        font-size: 16px;
+        color: var(--text-dark);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .search-input:focus {
+        outline: none;
+        background: var(--light);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-light);
+        font-size: 20px;
+      }
+
+      .filter-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+      }
+
+      .filter-tab {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--light);
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+      }
+
+      .filter-tab:hover,
+      .filter-tab.active {
+        background: var(--light);
+        color: var(--text-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 30px;
+        margin-bottom: 80px;
+      }
+
+      .card {
+        background: var(--light);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        cursor: pointer;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transition: var(--transition);
+      }
+
+      .card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .card-image {
+        position: relative;
+        overflow: hidden;
+        height: 280px;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .card:hover .card-image img {
+        transform: scale(1.1);
+      }
+
+      .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .card:hover .card-overlay {
+        opacity: 1;
+      }
+
+      .region-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .region-nasional {
+        background: var(--secondary);
+        color: var(--light);
+      }
+
+      .region-lokal {
+        background: var(--accent);
+        color: var(--light);
+      }
+
+      .card-content {
+        padding: 30px;
+      }
+
+      .card-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 12px;
+        line-height: 1.3;
+      }
+
+      .card-bio {
+        color: var(--text-light);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .card-actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 50px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: var(--light);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text-dark);
+        border: 2px solid var(--text-light);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        background: var(--light);
+        border-radius: var(--border-radius);
+        max-width: 800px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        transition: var(--transition);
+      }
+
+      .modal.active .modal-content {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .modal-header {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .modal-header img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .modal-header::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(transparent, var(--light));
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        transition: var(--transition);
+      }
+
+      .close-btn:hover {
+        background: var(--light);
+        transform: scale(1.1);
+      }
+
+      .modal-body {
+        padding: 40px;
+      }
+
+      .modal-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+      }
+
+      .modal-region {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+
+      .info-section {
+        margin-bottom: 30px;
+      }
+
+      .info-title {
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+
+      .info-content {
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      .works-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .works-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid #e2e8f0;
+        color: var(--text-light);
+      }
+
+      .works-list li:last-child {
+        border-bottom: none;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 60px 0;
+      }
+
+      .stat-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        text-align: center;
+        color: var(--light);
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        background: var(--gold);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .loading {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+      }
+
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid var(--light);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--light);
+      }
+
+      .no-results h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .modal-body {
+          padding: 20px;
+        }
+
+        .header {
+          padding: 40px 0 30px;
+        }
+
+        .filter-tabs {
+          justify-content: flex-start;
+          overflow-x: auto;
+          padding-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Background -->
+    <div class="floating-bg">
+      <div class="floating-circle"></div>
+      <div class="floating-circle"></div>
+      <div class="floating-circle"></div>
+    </div>
+
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="main-title">Tokoh Islam Nusantara</h1>
+        <p class="subtitle">
+          Mengenal Para Ulama dan Cendekiawan Muslim Indonesia Pasca-Kemerdekaan
+        </p>
+      </header>
+
+      <!-- Search -->
+      <div class="search-container">
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Cari tokoh Islam..."
+            id="searchInput"
+          />
+          <span class="search-icon">🔍</span>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">Semua</button>
+        <button class="filter-tab" data-filter="nasional">Nasional</button>
+        <button class="filter-tab" data-filter="lokal">Lokal</button>
+        <button class="filter-tab" data-filter="ulama">Ulama</button>
+        <button class="filter-tab" data-filter="cendekiawan">
+          Cendekiawan
+        </button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-number" id="totalFigures">15</div>
+          <div class="stat-label">Total Tokoh</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Tokoh Nasional</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">7</div>
+          <div class="stat-label">Tokoh Lokal</div>
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid" id="cardsContainer"></div>
+
+      <!-- No Results -->
+      <div class="no-results" id="noResults" style="display: none">
+        <h3>Tidak ada hasil ditemukan</h3>
+        <p>Coba kata kunci yang berbeda</p>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="modalImage" src="" alt="" />
+          <button class="close-btn" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-body">
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <div class="modal-region" id="modalRegion"></div>
+
+          <div class="info-section">
+            <h3 class="info-title">Biografi</h3>
+            <p class="info-content" id="modalBio"></p>
+          </div>
+
+          <div class="info-section">
+            <h3 class="info-title">Peran dan Kontribusi</h3>
+            <p class="info-content" id="modalRole"></p>
+          </div>
+
+          <div class="info-section">
+            <h3 class="info-title">Karya-karya</h3>
+            <ul class="works-list" id="modalWorks"></ul>
           </div>
         </div>
-      `;
-      container.appendChild(card);
-    });
+      </div>
+    </div>
 
-    container.addEventListener('click', e => {
-      if (e.target.matches('.btn')) {
-        const idx = e.target.dataset.index;
-        const detailEl = document.getElementById(`details-${idx}`);
-        detailEl.classList.toggle('open');
-        e.target.textContent = detailEl.classList.contains('open') ? 'Details ▼' : 'Details ▲';
+    <script>
+      const figures = [
+        {
+          name: "Ahmad Syafi'i Maarif",
+          img: "https://upload.wikimedia.org/wikipedia/commons/9/99/Ahmad_Syafii_Maarif_official_portrait.png",
+          bio: "Lahir 31 Mei 1935 di Sumatera Barat, mantan Ketua Umum PP Muhammadiyah (2000-2005) dan intelektual Islam terkemuka. Dikenal sebagai pemikir Islam moderat yang memperjuangkan pluralisme dan demokrasi.",
+          region: "Nasional",
+          category: "cendekiawan",
+          works: [
+            "Islam dan Hak Asasi Manusia",
+            "Agama dan Negara",
+            "Islam dalam Bingkai Keindonesiaan dan Kemanusiaan",
+            "Mencari Autentisitas di Tengah Kegalauan",
+          ],
+          role: "Mendorong modernisasi pemikiran Islam, dialog antarumat beragama, dan pemisahan agama dari urusan politik praktis. Memperjuangkan Islam yang ramah terhadap demokrasi dan pluralisme.",
+        },
+        {
+          name: "KH. Abdurrahman Wahid (Gus Dur)",
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/President_Abdurrahman_Wahid_-_Indonesia.jpg/800px-President_Abdurrahman_Wahid_-_Indonesia.jpg",
+          bio: "Lahir 7 September 1940 di Jombang, Jawa Timur. Presiden ke-4 Indonesia, Ketua Umum PBNU, dan tokoh pluralisme. Wafat 30 Desember 2009.",
+          region: "Nasional",
+          category: "ulama",
+          works: [
+            "Islamku, Islam Anda, Islam Kita",
+            "Pergulatan Negara, Agama, dan Kebudayaan",
+            "Tuhan Tidak Perlu Dibela",
+            "Islam Kosmopolitan",
+          ],
+          role: 'Memperjuangkan toleransi beragama, pluralisme, dan demokrasi. Dikenal sebagai "Bapak Pluralisme Indonesia" yang memadukan tradisi pesantren dengan pemikiran modern.',
+        },
+        {
+          name: "Prof. Dr. Quraish Shihab",
+          img: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Muhammad_Quraish_Shihab.jpg",
+          bio: "Lahir 16 Februari 1944 di Rappang, Sulawesi Selatan. Pakar tafsir Al-Quran, mantan Menteri Agama RI, dan pendiri Pusat Studi Al-Quran (PSQ).",
+          region: "Nasional",
+          category: "cendekiawan",
+          works: [
+            "Tafsir Al-Mishbah",
+            "Wawasan Al-Quran",
+            "Membumikan Al-Quran",
+            "Perempuan dalam Al-Quran",
+            "Yang Hilang dari Kita: Akhlak",
+          ],
+          role: "Menyebarkan pemahaman Al-Quran yang kontekstual dan moderat. Menjelaskan Islam dengan pendekatan ilmiah dan mudah dipahami masyarakat modern.",
+        },
+        {
+          name: "KH. Mustofa Bisri (Gus Mus)",
+          img: "https://upload.wikimedia.org/wikipedia/commons/a/a2/KH._Mustofa_Bisri_2019.jpg?20201209062246",
+          bio: "Lahir 10 Agustus 1944 di Rembang, Jawa Tengah. Penyair, sastrawan, kiai, dan mantan anggota DPR RI. Pimpinan Pondok Pesantren Raudlatuth Thalibin.",
+          region: "Nasional",
+          category: "ulama",
+          works: [
+            "Gandrung",
+            "Tadarus",
+            "Wekwekwek",
+            "Sajak-sajak Cinta",
+            "Islam Nusantara",
+          ],
+          role: "Memadukan dakwah Islam dengan sastra dan budaya. Menyuarakan Islam yang santun, toleran, dan berbudaya melalui karya sastra dan ceramah.",
+        },
+        {
+          name: "Prof. Dr. Komaruddin Hidayat",
+          img: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Komarudin_Hidayat.jpg/500px-Komarudin_Hidayat.jpg",
+          bio: "Lahir 18 Maret 1953 di Jakarta. Mantan Rektor UIN Syarif Hidayatullah Jakarta, pakar filsafat agama, dan intelektual Muslim.",
+          region: "Nasional",
+          category: "cendekiawan",
+          works: [
+            "Tragedi Raja Midas: Moralitas Agama dan Krisis Modernisme",
+            "Psikologi Kematian",
+            "Memahami Bahasa Agama",
+            "Agama Masa Depan",
+          ],
+          role: "Mengembangkan studi Islam kontemporer dan dialog antarperadaban. Mempromosikan Islam yang rasional dan terbuka terhadap perkembangan zaman.",
+        },
+        {
+          name: "KH. Said Aqil Siradj",
+          img: "https://www.rfp.org/wp-content/uploads/2020/10/47-Prof.-Dr.-Said-Aqil-Siradj-e1673298707386.jpg",
+          bio: "Lahir 3 Juli 1953 di Cirebon, Jawa Barat. Ketua Umum PBNU periode 2010-2015 dan 2015-2020, serta Rais Aam PBNU sejak 2021.",
+          region: "Nasional",
+          category: "ulama",
+          works: [
+            "Islam Kebangsaan",
+            "Tasawuf sebagai Kritik Sosial",
+            "NU, Kiai, dan Santri",
+            "Ahlussunnah wal Jamaah",
+          ],
+          role: "Memimpin Nahdlatul Ulama dalam mempromosikan Islam Nusantara dan moderasi beragama. Memperkuat peran NU dalam kehidupan berbangsa dan bernegara.",
+        },
+        {
+          name: "KH. Abdullah Gymnastiar (Aa Gym)",
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Aa_Gym%2C_Aagym_Official%2C_45.36.jpg/375px-Aa_Gym%2C_Aagym_Official%2C_45.36.jpg",
+          bio: "Lahir 29 Januari 1962 di Bandung, Jawa Barat. Pendiri Pondok Pesantren Daarut Tauhiid, dai kondang, dan pengusaha sukses.",
+          region: "Lokal",
+          category: "ulama",
+          works: [
+            "Manajemen Qolbu",
+            "Bila More Better",
+            "3 In 1 Management",
+            "Kunci Sukses Dunia Akhirat",
+          ],
+          role: "Menyebarkan dakwah Islam melalui media modern dan manajemen qalbu. Memadukan spiritualitas Islam dengan kehidupan praktis sehari-hari.",
+        },
+        {
+          name: "KH. Jalaluddin Rakhmat",
+          img: "data:image/jpeg;base64,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",
+          bio: "Lahir 29 Agustus 1949 di Bandung, Jawa Barat. Pakar komunikasi, cendekiawan Muslim, dan pendiri Yayasan Muthahhari.",
+          region: "Lokal",
+          category: "cendekiawan",
+          works: [
+            "Islam Alternatif",
+            "Rekayasa Sosial",
+            "Psikologi Komunikasi",
+            "Dahulukan Akhlak di Atas Fiqih",
+          ],
+          role: "Mengembangkan pemikiran Islam progresif dan studi komunikasi Islam. Mempromosikan dialog antarmazhab dan pemahaman Islam yang inklusif.",
+        },
+        {
+          name: "Dr. KH. Nadirsyah Hosen",
+          img: "https://law.unimelb.edu.au/__data/assets/image/0007/5003863/hosen_nadirsyah.jpg",
+          bio: "Lahir 14 Mei 1973 di Ponorogo, Jawa Timur. Pakar hukum Islam, dosen di Monash University Australia, dan penulis produktif.",
+          region: "Nasional",
+          category: "cendekiawan",
+          works: [
+            "Fiqh Politik Islam",
+            "Saring Sebelum Sharing",
+            "Tafsir Al-Quran di Medsos",
+            "Islam Yes, Khilafah No!",
+          ],
+          role: "Menyebarkan pemahaman Islam moderat melalui media sosial dan karya tulis. Menjelaskan hukum Islam dengan pendekatan kontemporer.",
+        },
+        {
+          name: "KH. Arifin Ilham",
+          img: "data:image/webp;base64,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",
+          bio: "Lahir 24 September 1969 di Depok, Jawa Barat. Dai kondang, penulis, dan pendiri Az-Zikra. Wafat 22 Mei 2019.",
+          region: "Nasional",
+          category: "ulama",
+          works: [
+            "Mutiara Zikir",
+            "Cahaya Hati",
+            "Indahnya Zikir",
+            "Keajaiban Zikir",
+          ],
+          role: "Menyebarkan amalan zikir dan spiritualitas Islam melalui ceramah yang menyentuh hati. Menghidupkan kembali tradisi zikir dalam kehidupan Muslim modern.",
+        },
+        {
+          name: "Prof. Dr. Azyumardi Azra",
+          img: "data:image/webp;base64,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",
+          bio: "Lahir 4 Maret 1955 di Padang Pariaman, Sumatera Barat. Sejarawan Islam, mantan Rektor UIN Syarif Hidayatullah Jakarta, dan intelektual Muslim.",
+          region: "Nasional",
+          category: "cendekiawan",
+          works: [
+            "Jaringan Ulama Timur Tengah dan Kepulauan Nusantara Abad XVII-XVIII",
+            "Islam Reformis",
+            "Konteks Berteologi di Indonesia",
+            "Pendidikan Islam",
+          ],
+          role: "Mengkaji sejarah dan perkembangan Islam di Indonesia. Mempromosikan Islam moderat dan pendidikan Islam yang berkualitas.",
+        },
+        ,
+        {
+          name: "KH. Cholil Ridwan",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvIECEunRX2c1cZH4M3enqZliuDp9CMQkpV48Eui_WEaS1GhKq2T2uQJvxZsgSV1zkALF-F6SIy_KA61YyfPW6YBAZXQFQy7PxfDpeOIM4",
+          bio: "Lahir 15 April 1963 di Jombang, Jawa Timur. Dai muda yang populer, penulis, dan pembicara motivasi Islami.",
+          region: "Lokal",
+          category: "ulama",
+          works: [
+            "Hidup Bahagia dengan Hati yang Bersih",
+            "Jangan Marah Ya Sayang",
+            "Kiat Sukses Meraih Ridha Allah",
+            "Motivasi Hidup Islami",
+          ],
+          role: "Menyebarkan dakwah Islam dengan gaya yang santai dan mudah dipahami generasi muda. Memadukan humor dengan pesan-pesan spiritual.",
+        },
+        {
+          name: "Dr. KH. Nasaruddin Umar",
+          img: "data:image/webp;base64,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",
+          bio: "Lahir 23 Maret 1959 di Sikka, Nusa Tenggara Timur. Imam Besar Masjid Istiqlal, pakar gender dalam Islam, dan mantan Sekjen Kementerian Agama.",
+          region: "Nasional",
+          category: "cendekiawan",
+          works: [
+            "Argumen Kesetaraan Jender Perspektif Al-Quran",
+            "Deradikalisasi Pemahaman Al-Quran dan Hadis",
+            "Fikih Wanita untuk Semua",
+            "Islam dan Gender",
+          ],
+          role: "Memperjuangkan kesetaraan gender dalam Islam dan memerangi radikalisme. Menyebarkan pemahaman Islam yang inklusif dan berkeadilan.",
+        },
+      ];
+
+      let filteredFigures = [...figures];
+      let currentFilter = "all";
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        renderCards();
+        setupEventListeners();
+        updateStats();
+      });
+
+      function setupEventListeners() {
+        // Search functionality
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", debounce(handleSearch, 300));
+
+        // Filter tabs
+        const filterTabs = document.querySelectorAll(".filter-tab");
+        filterTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            filterTabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+            currentFilter = tab.dataset.filter;
+            applyFilters();
+          });
+        });
+
+        // Modal close on outside click
+        document.getElementById("modal").addEventListener("click", (e) => {
+          if (e.target.id === "modal") {
+            closeModal();
+          }
+        });
       }
-    });
-  </script>
-</body>
+
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      function handleSearch(e) {
+        const query = e.target.value.toLowerCase();
+        showLoading();
+
+        setTimeout(() => {
+          filteredFigures = figures.filter(
+            (figure) =>
+              figure.name.toLowerCase().includes(query) ||
+              figure.bio.toLowerCase().includes(query) ||
+              figure.role.toLowerCase().includes(query) ||
+              figure.works.some((work) => work.toLowerCase().includes(query))
+          );
+          applyFilters();
+          hideLoading();
+        }, 500);
+      }
+
+      function applyFilters() {
+        let filtered = [...filteredFigures];
+
+        if (currentFilter !== "all") {
+          filtered = filtered.filter(
+            (figure) =>
+              figure.region.toLowerCase() === currentFilter ||
+              figure.category === currentFilter
+          );
+        }
+
+        renderCards(filtered);
+        updateStats(filtered);
+      }
+
+      function renderCards(data = figures) {
+        const container = document.getElementById("cardsContainer");
+        const noResults = document.getElementById("noResults");
+
+        if (data.length === 0) {
+          container.innerHTML = "";
+          noResults.style.display = "block";
+          return;
+        }
+
+        noResults.style.display = "none";
+
+        container.innerHTML = data
+          .map(
+            (figure, index) => `
+                <div class="card" onclick="openModal(${figures.indexOf(
+                  figure
+                )})">
+                    <div class="card-image">
+                        <img src="${figure.img}" alt="${
+              figure.name
+            }" loading="lazy">
+                        <div class="card-overlay"></div>
+                        <div class="region-badge ${
+                          figure.region.toLowerCase() === "nasional"
+                            ? "region-nasional"
+                            : "region-lokal"
+                        }">
+                            ${figure.region}
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${figure.name}</h3>
+                        <p class="card-bio">${figure.bio}</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary">
+                                📖 Selengkapnya
+                            </button>
+                            <button class="btn btn-secondary">
+                                📚 ${figure.works.length} Karya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      function openModal(index) {
+        const figure = figures[index];
+        const modal = document.getElementById("modal");
+
+        document.getElementById("modalImage").src = figure.img;
+        document.getElementById("modalTitle").textContent = figure.name;
+        document.getElementById("modalRegion").textContent = figure.region;
+        document.getElementById("modalRegion").className = `modal-region ${
+          figure.region.toLowerCase() === "nasional"
+            ? "region-nasional"
+            : "region-lokal"
+        }`;
+        document.getElementById("modalBio").textContent = figure.bio;
+        document.getElementById("modalRole").textContent = figure.role;
+
+        const worksList = document.getElementById("modalWorks");
+        worksList.innerHTML = figure.works
+          .map((work) => `<li>📖 ${work}</li>`)
+          .join("");
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("modal");
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+
+      function showLoading() {
+        document.getElementById("loading").style.display = "flex";
+        document.getElementById("cardsContainer").style.opacity = "0.5";
+      }
+
+      function hideLoading() {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("cardsContainer").style.opacity = "1";
+      }
+
+      function updateStats(data = figures) {
+        document.getElementById("totalFigures").textContent = data.length;
+      }
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+      });
+
+      // Smooth scroll animation
+      window.addEventListener("scroll", () => {
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+          if (isVisible) {
+            card.style.transform = `translateY(${Math.max(
+              0,
+              (rect.top - window.innerHeight) * 0.1
+            )}px)`;
+          }
+        });
+      });
+
+      // Add parallax effect to floating circles
+      window.addEventListener("mousemove", (e) => {
+        const circles = document.querySelectorAll(".floating-circle");
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        circles.forEach((circle, index) => {
+          const speed = (index + 1) * 20;
+          const xPos = (x - 0.5) * speed;
+          const yPos = (y - 0.5) * speed;
+
+          circle.style.transform = `translate(${xPos}px, ${yPos}px)`;
+        });
+      });
+
+      // Advanced card animations on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0) scale(1)";
+            }, index * 100);
+          }
+        });
+      }, observerOptions);
+
+      // Observe cards for scroll animations
+      function observeCards() {
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px) scale(0.95)";
+          card.style.transition = "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+          cardObserver.observe(card);
+        });
+      }
+
+      // Enhanced search with highlighting
+      function highlightSearchTerm(text, term) {
+        if (!term) return text;
+        const regex = new RegExp(`(${term})`, "gi");
+        return text.replace(
+          regex,
+          '<mark style="background: #fef3cd; padding: 2px 4px; border-radius: 3px;">$1</mark>'
+        );
+      }
+
+      // Add typing effect to main title
+      function typeWriter(element, text, speed = 100) {
+        let i = 0;
+        element.innerHTML = "";
+
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+
+      // Initialize typing effect
+      document.addEventListener("DOMContentLoaded", function () {
+        const mainTitle = document.querySelector(".main-title");
+        const originalText = mainTitle.textContent;
+        typeWriter(mainTitle, originalText, 80);
+
+        // Delay other initializations
+        setTimeout(() => {
+          renderCards();
+          setupEventListeners();
+          updateStats();
+          observeCards();
+        }, originalText.length * 80 + 500);
+      });
+
+      // Add bookmark functionality
+      let bookmarkedFigures = JSON.parse(
+        localStorage.getItem("bookmarkedFigures") || "[]"
+      );
+
+      function toggleBookmark(index) {
+        const figureId = figures[index].name;
+        const bookmarkIndex = bookmarkedFigures.indexOf(figureId);
+
+        if (bookmarkIndex === -1) {
+          bookmarkedFigures.push(figureId);
+          showNotification(
+            `${figures[index].name} ditambahkan ke bookmark`,
+            "success"
+          );
+        } else {
+          bookmarkedFigures.splice(bookmarkIndex, 1);
+          showNotification(
+            `${figures[index].name} dihapus dari bookmark`,
+            "info"
+          );
+        }
+
+        localStorage.setItem(
+          "bookmarkedFigures",
+          JSON.stringify(bookmarkedFigures)
+        );
+        updateBookmarkButtons();
+      }
+
+      function updateBookmarkButtons() {
+        const bookmarkButtons = document.querySelectorAll(".bookmark-btn");
+        bookmarkButtons.forEach((btn, index) => {
+          const isBookmarked = bookmarkedFigures.includes(figures[index].name);
+          btn.innerHTML = isBookmarked ? "❤️ Tersimpan" : "🤍 Simpan";
+          btn.classList.toggle("bookmarked", isBookmarked);
+        });
+      }
+
+      // Notification system
+      function showNotification(message, type = "info") {
+        const notification = document.createElement("div");
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-icon">${
+                      type === "success" ? "✅" : "ℹ️"
+                    }</span>
+                    <span class="notification-message">${message}</span>
+                </div>
+            `;
+
+        // Add notification styles
+        notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === "success" ? "#10b981" : "#3b82f6"};
+                color: white;
+                padding: 16px 20px;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                z-index: 2000;
+                transform: translateX(400px);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                backdrop-filter: blur(10px);
+            `;
+
+        document.body.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+          notification.style.transform = "translateX(0)";
+        }, 100);
+
+        // Animate out and remove
+        setTimeout(() => {
+          notification.style.transform = "translateX(400px)";
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 400);
+        }, 3000);
+      }
+
+      // Enhanced modal with navigation
+      let currentModalIndex = 0;
+
+      function openModal(index) {
+        currentModalIndex = index;
+        const figure = figures[index];
+        const modal = document.getElementById("modal");
+
+        document.getElementById("modalImage").src = figure.img;
+        document.getElementById("modalTitle").textContent = figure.name;
+        document.getElementById("modalRegion").textContent = figure.region;
+        document.getElementById("modalRegion").className = `modal-region ${
+          figure.region.toLowerCase() === "nasional"
+            ? "region-nasional"
+            : "region-lokal"
+        }`;
+        document.getElementById("modalBio").textContent = figure.bio;
+        document.getElementById("modalRole").textContent = figure.role;
+
+        const worksList = document.getElementById("modalWorks");
+        worksList.innerHTML = figure.works
+          .map((work) => `<li>📖 ${work}</li>`)
+          .join("");
+
+        // Add navigation buttons
+        const modalBody = document.querySelector(".modal-body");
+        let navButtons = modalBody.querySelector(".modal-navigation");
+        if (!navButtons) {
+          navButtons = document.createElement("div");
+          navButtons.className = "modal-navigation";
+          navButtons.style.cssText = `
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 30px;
+                    padding-top: 20px;
+                    border-top: 1px solid #e2e8f0;
+                `;
+          navButtons.innerHTML = `
+                    <button class="btn btn-secondary" onclick="navigateModal(-1)" ${
+                      index === 0 ? "disabled" : ""
+                    }>
+                        ← Sebelumnya
+                    </button>
+                    <button class="bookmark-btn btn btn-primary" onclick="toggleBookmark(${index})">
+                        ${
+                          bookmarkedFigures.includes(figure.name)
+                            ? "❤️ Tersimpan"
+                            : "🤍 Simpan"
+                        }
+                    </button>
+                    <button class="btn btn-secondary" onclick="navigateModal(1)" ${
+                      index === figures.length - 1 ? "disabled" : ""
+                    }>
+                        Selanjutnya →
+                    </button>
+                `;
+          modalBody.appendChild(navButtons);
+        } else {
+          // Update existing navigation
+          const buttons = navButtons.querySelectorAll("button");
+          buttons[0].disabled = index === 0;
+          buttons[0].onclick = () => navigateModal(-1);
+          buttons[1].onclick = () => toggleBookmark(index);
+          buttons[1].innerHTML = bookmarkedFigures.includes(figure.name)
+            ? "❤️ Tersimpan"
+            : "🤍 Simpan";
+          buttons[2].disabled = index === figures.length - 1;
+          buttons[2].onclick = () => navigateModal(1);
+        }
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function navigateModal(direction) {
+        const newIndex = currentModalIndex + direction;
+        if (newIndex >= 0 && newIndex < figures.length) {
+          openModal(newIndex);
+        }
+      }
+
+      // Add keyboard shortcuts
+      document.addEventListener("keydown", (e) => {
+        const modal = document.getElementById("modal");
+        if (modal.classList.contains("active")) {
+          switch (e.key) {
+            case "Escape":
+              closeModal();
+              break;
+            case "ArrowLeft":
+              navigateModal(-1);
+              break;
+            case "ArrowRight":
+              navigateModal(1);
+              break;
+            case "b":
+            case "B":
+              toggleBookmark(currentModalIndex);
+              break;
+          }
+        }
+      });
+
+      // Add share functionality
+      function shareCard(index) {
+        const figure = figures[index];
+        const shareData = {
+          title: `Tokoh Islam: ${figure.name}`,
+          text: figure.bio,
+          url: window.location.href,
+        };
+
+        if (navigator.share) {
+          navigator.share(shareData);
+        } else {
+          // Fallback: copy to clipboard
+          const textArea = document.createElement("textarea");
+          textArea.value = `${shareData.title}\n\n${shareData.text}\n\n${shareData.url}`;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
+          showNotification("Link berhasil disalin ke clipboard!", "success");
+        }
+      }
+
+      // Enhanced stats with animations
+      function animateNumber(element, target, duration = 2000) {
+        const start = 0;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const current = Math.floor(start + (target - start) * progress);
+
+          element.textContent = current;
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          }
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      function updateStats(data = figures) {
+        const totalElement = document.getElementById("totalFigures");
+        animateNumber(totalElement, data.length);
+      }
+
+      // Add dark mode toggle
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDark);
+
+        // Update CSS variables for dark mode
+        if (isDark) {
+          document.documentElement.style.setProperty("--bg", "#1a1a2e");
+          document.documentElement.style.setProperty("--card-bg", "#16213e");
+          document.documentElement.style.setProperty("--text", "#ffffff");
+          document.documentElement.style.setProperty("--text-light", "#a0aec0");
+        } else {
+          document.documentElement.style.setProperty("--bg", "#f9f9f9");
+          document.documentElement.style.setProperty("--card-bg", "#ffffff");
+          document.documentElement.style.setProperty("--text", "#333333");
+          document.documentElement.style.setProperty("--text-light", "#64748b");
+        }
+      }
+
+      // Initialize dark mode from localStorage
+      if (localStorage.getItem("darkMode") === "true") {
+        toggleDarkMode();
+      }
+
+      // Add performance optimization - lazy loading for images
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove("lazy");
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      // Add print styles and functionality
+      function printCard(index) {
+        const figure = figures[index];
+        const printWindow = window.open("", "", "width=800,height=600");
+        printWindow.document.write(`
+                <html>
+                <head>
+                    <title>Tokoh Islam: ${figure.name}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; }
+                        .header { text-align: center; margin-bottom: 30px; }
+                        .content { line-height: 1.6; }
+                        .section { margin-bottom: 20px; }
+                        .works { list-style-type: disc; padding-left: 20px; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>${figure.name}</h1>
+                        <p><strong>Wilayah Dakwah:</strong> ${figure.region}</p>
+                    </div>
+                    <div class="content">
+                        <div class="section">
+                            <h3>Biografi</h3>
+                            <p>${figure.bio}</p>
+                        </div>
+                        <div class="section">
+                            <h3>Peran dan Kontribusi</h3>
+                            <p>${figure.role}</p>
+                        </div>
+                        <div class="section">
+                            <h3>Karya-karya</h3>
+                            <ul class="works">
+                                ${figure.works
+                                  .map((work) => `<li>${work}</li>`)
+                                  .join("")}
+                            </ul>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `);
+        printWindow.document.close();
+        printWindow.print();
+      }
+
+      // Add export functionality
+      function exportData(format = "json") {
+        let data, filename, mimeType;
+
+        switch (format) {
+          case "json":
+            data = JSON.stringify(figures, null, 2);
+            filename = "tokoh-islam-indonesia.json";
+            mimeType = "application/json";
+            break;
+          case "csv":
+            const headers = [
+              "Nama",
+              "Wilayah",
+              "Kategori",
+              "Biografi",
+              "Peran",
+              "Karya",
+            ];
+            const csvData = [
+              headers.join(","),
+              ...figures.map((f) =>
+                [
+                  `"${f.name}"`,
+                  `"${f.region}"`,
+                  `"${f.category}"`,
+                  `"${f.bio.replace(/"/g, '""')}"`,
+                  `"${f.role.replace(/"/g, '""')}"`,
+                  `"${f.works.join("; ")}"`,
+                ].join(",")
+              ),
+            ].join("\n");
+            data = csvData;
+            filename = "tokoh-islam-indonesia.csv";
+            mimeType = "text/csv";
+            break;
+        }
+
+        const blob = new Blob([data], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        showNotification(
+          `Data berhasil diekspor sebagai ${format.toUpperCase()}`,
+          "success"
+        );
+      }
+
+      // Advanced search with autocomplete
+      function initializeAutocomplete() {
+        const searchInput = document.getElementById("searchInput");
+        const autocompleteContainer = document.createElement("div");
+        autocompleteContainer.className = "autocomplete-container";
+        autocompleteContainer.style.cssText = `
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                z-index: 1000;
+                display: none;
+                max-height: 300px;
+                overflow-y: auto;
+            `;
+
+        searchInput.parentElement.style.position = "relative";
+        searchInput.parentElement.appendChild(autocompleteContainer);
+
+        searchInput.addEventListener(
+          "input",
+          debounce((e) => {
+            const query = e.target.value.toLowerCase();
+            if (query.length < 2) {
+              autocompleteContainer.style.display = "none";
+              return;
+            }
+
+            const suggestions = figures
+              .filter(
+                (figure) =>
+                  figure.name.toLowerCase().includes(query) ||
+                  figure.works.some((work) =>
+                    work.toLowerCase().includes(query)
+                  )
+              )
+              .slice(0, 5);
+
+            if (suggestions.length > 0) {
+              autocompleteContainer.innerHTML = suggestions
+                .map(
+                  (figure) => `
+                            <div class="autocomplete-item" onclick="selectSuggestion('${figure.name}')" style="
+                                padding: 12px;
+                                cursor: pointer;
+                                border-bottom: 1px solid #f1f5f9;
+                                transition: background 0.2s;
+                            ">
+                                <strong>${figure.name}</strong>
+                                <div style="font-size: 0.9em; color: #64748b;">${figure.region}</div>
+                            </div>
+                        `
+                )
+                .join("");
+              autocompleteContainer.style.display = "block";
+            } else {
+              autocompleteContainer.style.display = "none";
+            }
+          }, 200)
+        );
+
+        // Hide autocomplete when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            !searchInput.contains(e.target) &&
+            !autocompleteContainer.contains(e.target)
+          ) {
+            autocompleteContainer.style.display = "none";
+          }
+        });
+      }
+
+      function selectSuggestion(name) {
+        const searchInput = document.getElementById("searchInput");
+        searchInput.value = name;
+        document.querySelector(".autocomplete-container").style.display =
+          "none";
+        handleSearch({ target: searchInput });
+      }
+
+      // Add reading progress indicator
+      function initializeReadingProgress() {
+        const progressBar = document.createElement("div");
+        progressBar.className = "reading-progress";
+        progressBar.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 3px;
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+                z-index: 2000;
+                transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            `;
+        document.body.appendChild(progressBar);
+
+        window.addEventListener("scroll", () => {
+          const scrolled =
+            (window.scrollY /
+              (document.documentElement.scrollHeight - window.innerHeight)) *
+            100;
+          progressBar.style.width = `${Math.min(scrolled, 100)}%`;
+        });
+      }
+
+      // Add social media sharing buttons
+      function addSocialSharing(index) {
+        const figure = figures[index];
+        const shareText = encodeURIComponent(
+          `Belajar tentang ${figure.name}, tokoh Islam dari ${figure.region}`
+        );
+        const shareUrl = encodeURIComponent(window.location.href);
+
+        return `
+                <div class="social-share" style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+                    <a href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}" 
+                       target="_blank" class="social-btn twitter" style="
+                       display: inline-flex; align-items: center; padding: 8px 16px; background: #1da1f2;
+                       color: white; text-decoration: none; border-radius: 6px; font-size: 0.9em;">
+                        🐦 Twitter
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" 
+                       target="_blank" class="social-btn facebook" style="
+                       display: inline-flex; align-items: center; padding: 8px 16px; background: #4267b2;
+                       color: white; text-decoration: none; border-radius: 6px; font-size: 0.9em;">
+                        📘 Facebook
+                    </a>
+                    <a href="https://wa.me/?text=${shareText}%20${shareUrl}" 
+                       target="_blank" class="social-btn whatsapp" style="
+                       display: inline-flex; align-items: center; padding: 8px 16px; background: #25d366;
+                       color: white; text-decoration: none; border-radius: 6px; font-size: 0.9em;">
+                        💬 WhatsApp
+                    </a>
+                </div>
+            `;
+      }
+
+      // Add favorites and collections system
+      let collections = JSON.parse(localStorage.getItem("collections") || "{}");
+
+      function createCollection(name) {
+        if (collections[name]) {
+          showNotification("Koleksi dengan nama tersebut sudah ada", "error");
+          return;
+        }
+
+        collections[name] = [];
+        localStorage.setItem("collections", JSON.stringify(collections));
+        showNotification(`Koleksi "${name}" berhasil dibuat`, "success");
+        updateCollectionsList();
+      }
+
+      function addToCollection(figureIndex, collectionName) {
+        if (!collections[collectionName]) {
+          collections[collectionName] = [];
+        }
+
+        const figureName = figures[figureIndex].name;
+        if (!collections[collectionName].includes(figureName)) {
+          collections[collectionName].push(figureName);
+          localStorage.setItem("collections", JSON.stringify(collections));
+          showNotification(
+            `${figureName} ditambahkan ke koleksi "${collectionName}"`,
+            "success"
+          );
+        }
+      }
+
+      function updateCollectionsList() {
+        const collectionsElement = document.getElementById("collections");
+        if (collectionsElement) {
+          collectionsElement.innerHTML = Object.keys(collections)
+            .map(
+              (name) => `
+                        <div class="collection-item" style="
+                            display: flex; justify-content: space-between; align-items: center;
+                            padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;">
+                            <span>${name} (${collections[name].length} tokoh)</span>
+                            <button onclick="viewCollection('${name}')" class="btn btn-small">Lihat</button>
+                        </div>
+                    `
+            )
+            .join("");
+        }
+      }
+
+      function viewCollection(name) {
+        const collectionFigures = figures.filter((figure) =>
+          collections[name].includes(figure.name)
+        );
+        renderCards(collectionFigures);
+        showNotification(`Menampilkan koleksi "${name}"`, "info");
+      }
+
+      // Add quiz functionality
+      function startQuiz() {
+        const quizQuestions = generateQuizQuestions(5);
+        let currentQuestion = 0;
+        let score = 0;
+
+        function showQuestion(questionIndex) {
+          const question = quizQuestions[questionIndex];
+          const quizModal = document.createElement("div");
+          quizModal.className = "quiz-modal";
+          quizModal.style.cssText = `
+                    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                    background: rgba(0,0,0,0.8); z-index: 3000; display: flex;
+                    align-items: center; justify-content: center;
+                `;
+
+          quizModal.innerHTML = `
+                    <div class="quiz-content" style="
+                        background: white; padding: 30px; border-radius: 16px;
+                        max-width: 500px; width: 90%; text-align: center;">
+                        <h3>Pertanyaan ${questionIndex + 1}/${
+            quizQuestions.length
+          }</h3>
+                        <p style="margin: 20px 0;<p style="margin: 20px 0; font-size: 1.1em;">${
+                          question.question
+                        }</p>
+                        <div class="quiz-options" style="display: flex; flex-direction: column; gap: 10px;">
+                            ${question.options
+                              .map(
+                                (option, i) => `
+                                <button class="quiz-option" data-index="${i}" style="
+                                    padding: 12px; border: 2px solid #e2e8f0; background: white;
+                                    border-radius: 8px; cursor: pointer; transition: all 0.3s;
+                                    text-align: left;">
+                                    ${option}
+                                </button>
+                            `
+                              )
+                              .join("")}
+                        </div>
+                        <div class="quiz-score" style="margin-top: 20px; color: #64748b;">
+                            Skor: ${score}/${questionIndex}
+                        </div>
+                    </div>
+                `;
+
+          document.body.appendChild(quizModal);
+
+          // Add event listeners for options
+          const options = quizModal.querySelectorAll(".quiz-option");
+          options.forEach((option, index) => {
+            option.addEventListener("click", () => {
+              const isCorrect = index === question.correctAnswer;
+
+              // Style the clicked option
+              option.style.background = isCorrect ? "#10b981" : "#ef4444";
+              option.style.color = "white";
+              option.style.border = isCorrect
+                ? "2px solid #059669"
+                : "2px solid #dc2626";
+
+              // Show correct answer if wrong
+              if (!isCorrect) {
+                options[question.correctAnswer].style.background = "#10b981";
+                options[question.correctAnswer].style.color = "white";
+                options[question.correctAnswer].style.border =
+                  "2px solid #059669";
+              }
+
+              // Disable all options
+              options.forEach((opt) => (opt.style.pointerEvents = "none"));
+
+              if (isCorrect) score++;
+
+              setTimeout(() => {
+                document.body.removeChild(quizModal);
+                currentQuestion++;
+
+                if (currentQuestion < quizQuestions.length) {
+                  showQuestion(currentQuestion);
+                } else {
+                  showQuizResults(score, quizQuestions.length);
+                }
+              }, 2000);
+            });
+          });
+        }
+
+        showQuestion(0);
+      }
+
+      function generateQuizQuestions(count) {
+        const questions = [];
+        const shuffledFigures = [...figures]
+          .sort(() => Math.random() - 0.5)
+          .slice(0, count);
+
+        shuffledFigures.forEach((figure) => {
+          const otherFigures = figures.filter((f) => f.name !== figure.name);
+          const wrongOptions = otherFigures
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 3)
+            .map((f) => f.name);
+
+          const options = [figure.name, ...wrongOptions].sort(
+            () => Math.random() - 0.5
+          );
+          const correctAnswer = options.indexOf(figure.name);
+
+          questions.push({
+            question: `Siapa tokoh yang berasal dari ${figure.region} dengan karya "${figure.works[0]}"?`,
+            options: options,
+            correctAnswer: correctAnswer,
+          });
+        });
+
+        return questions;
+      }
+
+      function showQuizResults(score, total) {
+        const percentage = Math.round((score / total) * 100);
+        let message = "";
+        let emoji = "";
+
+        if (percentage >= 80) {
+          message =
+            "Luar biasa! Anda sangat menguasai sejarah tokoh Islam Indonesia!";
+          emoji = "🏆";
+        } else if (percentage >= 60) {
+          message =
+            "Bagus! Pengetahuan Anda cukup baik tentang tokoh Islam Indonesia.";
+          emoji = "👏";
+        } else {
+          message =
+            "Terus belajar! Masih banyak yang bisa dipelajari tentang tokoh Islam Indonesia.";
+          emoji = "📚";
+        }
+
+        const resultModal = document.createElement("div");
+        resultModal.className = "quiz-result-modal";
+        resultModal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); z-index: 3000; display: flex;
+                align-items: center; justify-content: center;
+            `;
+
+        resultModal.innerHTML = `
+                <div class="quiz-result-content" style="
+                    background: white; padding: 40px; border-radius: 16px;
+                    max-width: 400px; width: 90%; text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">${emoji}</div>
+                    <h3>Hasil Kuis</h3>
+                    <div style="font-size: 2em; margin: 20px 0; color: #3b82f6;">
+                        ${score}/${total} (${percentage}%)
+                    </div>
+                    <p style="margin: 20px 0; color: #64748b;">${message}</p>
+                    <div style="display: flex; gap: 10px; justify-content: center;">
+                        <button onclick="this.closest('.quiz-result-modal').remove()" 
+                                class="btn btn-secondary">Tutup</button>
+                        <button onclick="this.closest('.quiz-result-modal').remove(); startQuiz();" 
+                                class="btn btn-primary">Ulangi Kuis</button>
+                    </div>
+                </div>
+            `;
+
+        document.body.appendChild(resultModal);
+      }
+
+      // Add timeline visualization
+      function showTimeline() {
+        const timelineData = figures
+          .map((figure) => ({
+            name: figure.name,
+            year: extractYearFromBio(figure.bio),
+            region: figure.region,
+            category: figure.category,
+          }))
+          .filter((item) => item.year)
+          .sort((a, b) => a.year - b.year);
+
+        const timelineModal = document.createElement("div");
+        timelineModal.className = "timeline-modal";
+        timelineModal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.9); z-index: 3000; overflow-y: auto;
+                padding: 20px;
+            `;
+
+        timelineModal.innerHTML = `
+                <div class="timeline-content" style="
+                    max-width: 1000px; margin: 0 auto; background: white;
+                    border-radius: 16px; padding: 30px; position: relative;">
+                    <button onclick="this.closest('.timeline-modal').remove()" 
+                            style="position: absolute; top: 15px; right: 15px; 
+                            background: none; border: none; font-size: 1.5em; cursor: pointer;">×</button>
+                    <h2 style="text-align: center; margin-bottom: 30px;">Timeline Tokoh Islam Indonesia</h2>
+                    <div class="timeline" style="position: relative; margin: 20px 0;">
+                        <div class="timeline-line" style="
+                            position: absolute; left: 50%; top: 0; bottom: 0;
+                            width: 2px; background: #e2e8f0; transform: translateX(-50%);"></div>
+                        ${timelineData
+                          .map(
+                            (item, index) => `
+                            <div class="timeline-item" style="
+                                position: relative; margin: 30px 0; display: flex;
+                                ${
+                                  index % 2 === 0
+                                    ? "justify-content: flex-start"
+                                    : "justify-content: flex-end"
+                                };
+                            ">
+                                <div class="timeline-card" style="
+                                    width: 45%; padding: 20px; background: #f8fafc;
+                                    border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                                    ${
+                                      index % 2 === 0
+                                        ? "margin-right: 5%"
+                                        : "margin-left: 5%"
+                                    };
+                                ">
+                                    <div class="timeline-year" style="
+                                        font-size: 1.2em; font-weight: bold; color: #3b82f6;
+                                        margin-bottom: 10px;">${item.year}</div>
+                                    <div class="timeline-name" style="
+                                        font-weight: bold; margin-bottom: 5px;">${
+                                          item.name
+                                        }</div>
+                                    <div class="timeline-region" style="
+                                        color: #64748b; font-size: 0.9em;">${
+                                          item.region
+                                        }</div>
+                                </div>
+                                <div class="timeline-dot" style="
+                                    position: absolute; left: 50%; top: 20px;
+                                    width: 12px; height: 12px; background: #3b82f6;
+                                    border-radius: 50%; transform: translateX(-50%);
+                                "></div>
+                            </div>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+            `;
+
+        document.body.appendChild(timelineModal);
+      }
+
+      function extractYearFromBio(bio) {
+        const yearMatch = bio.match(/\b(1[0-9]{3}|20[0-2][0-9])\b/);
+        return yearMatch ? parseInt(yearMatch[0]) : null;
+      }
+
+      // Add comparison tool
+      function compareTokens(index1, index2) {
+        const figure1 = figures[index1];
+        const figure2 = figures[index2];
+
+        const comparisonModal = document.createElement("div");
+        comparisonModal.className = "comparison-modal";
+        comparisonModal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.9); z-index: 3000; overflow-y: auto;
+                padding: 20px;
+            `;
+
+        comparisonModal.innerHTML = `
+                <div class="comparison-content" style="
+                    max-width: 1200px; margin: 0 auto; background: white;
+                    border-radius: 16px; padding: 30px; position: relative;">
+                    <button onclick="this.closest('.comparison-modal').remove()" 
+                            style="position: absolute; top: 15px; right: 15px; 
+                            background: none; border: none; font-size: 1.5em; cursor: pointer;">×</button>
+                    <h2 style="text-align: center; margin-bottom: 30px;">Perbandingan Tokoh</h2>
+                    <div class="comparison-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div class="comparison-card" style="padding: 20px; border: 2px solid #e2e8f0; border-radius: 12px;">
+                            <img src="${figure1.img}" alt="${
+          figure1.name
+        }" style="
+                                width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                            <h3>${figure1.name}</h3>
+                            <p><strong>Wilayah:</strong> ${figure1.region}</p>
+                            <p><strong>Kategori:</strong> ${
+                              figure1.category
+                            }</p>
+                            <p><strong>Peran:</strong> ${figure1.role}</p>
+                            <p><strong>Biografi:</strong> ${figure1.bio}</p>
+                            <div><strong>Karya-karya:</strong>
+                                <ul style="margin-top: 10px;">
+                                    ${figure1.works
+                                      .map((work) => `<li>${work}</li>`)
+                                      .join("")}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-card" style="padding: 20px; border: 2px solid #e2e8f0; border-radius: 12px;">
+                            <img src="${figure2.img}" alt="${
+          figure2.name
+        }" style="
+                                width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                            <h3>${figure2.name}</h3>
+                            <p><strong>Wilayah:</strong> ${figure2.region}</p>
+                            <p><strong>Kategori:</strong> ${
+                              figure2.category
+                            }</p>
+                            <p><strong>Peran:</strong> ${figure2.role}</p>
+                            <p><strong>Biografi:</strong> ${figure2.bio}</p>
+                            <div><strong>Karya-karya:</strong>
+                                <ul style="margin-top: 10px;">
+                                    ${figure2.works
+                                      .map((work) => `<li>${work}</li>`)
+                                      .join("")}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comparison-summary" style="
+                        margin-top: 30px; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                        <h4>Persamaan dan Perbedaan</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                            <div>
+                                <h5 style="color: #10b981;">✓ Persamaan</h5>
+                                <ul style="margin-top: 10px;">
+                                    ${
+                                      figure1.region === figure2.region
+                                        ? `<li>Sama-sama dari ${figure1.region}</li>`
+                                        : ""
+                                    }
+                                    ${
+                                      figure1.category === figure2.category
+                                        ? `<li>Sama-sama kategori ${figure1.category}</li>`
+                                        : ""
+                                    }
+                                    <li>Sama-sama tokoh Islam Indonesia</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 style="color: #ef4444;">✗ Perbedaan</h5>
+                                <ul style="margin-top: 10px;">
+                                    ${
+                                      figure1.region !== figure2.region
+                                        ? `<li>Wilayah: ${figure1.region} vs ${figure2.region}</li>`
+                                        : ""
+                                    }
+                                    ${
+                                      figure1.category !== figure2.category
+                                        ? `<li>Kategori: ${figure1.category} vs ${figure2.category}</li>`
+                                        : ""
+                                    }
+                                    <li>Jumlah karya: ${
+                                      figure1.works.length
+                                    } vs ${figure2.works.length}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        document.body.appendChild(comparisonModal);
+      }
+
+      // Add study notes functionality
+      let studyNotes = JSON.parse(localStorage.getItem("studyNotes") || "{}");
+
+      function addStudyNote(figureIndex, note) {
+        const figureName = figures[figureIndex].name;
+        if (!studyNotes[figureName]) {
+          studyNotes[figureName] = [];
+        }
+        studyNotes[figureName].push({
+          note: note,
+          timestamp: new Date().toISOString(),
+          id: Date.now(),
+        });
+        localStorage.setItem("studyNotes", JSON.stringify(studyNotes));
+        showNotification("Catatan berhasil disimpan", "success");
+        updateNotesDisplay(figureIndex);
+      }
+
+      function updateNotesDisplay(figureIndex) {
+        const figureName = figures[figureIndex].name;
+        const notesContainer = document.getElementById("studyNotesContainer");
+        if (notesContainer && studyNotes[figureName]) {
+          notesContainer.innerHTML = studyNotes[figureName]
+            .map(
+              (noteObj) => `
+                        <div class="study-note" style="
+                            background: #fffbeb; border-left: 4px solid #f59e0b;
+                            padding: 15px; margin: 10px 0; border-radius: 8px;">
+                            <div class="note-content">${noteObj.note}</div>
+                            <div class="note-timestamp" style="
+                                font-size: 0.8em; color: #64748b; margin-top: 8px;">
+                                ${new Date(
+                                  noteObj.timestamp
+                                ).toLocaleDateString("id-ID")}
+                            </div>
+                            <button onclick="deleteStudyNote('${figureName}', ${
+                noteObj.id
+              })" 
+                                    style="float: right; background: none; border: none; 
+                                    color: #ef4444; cursor: pointer;">🗑️</button>
+                        </div>
+                    `
+            )
+            .join("");
+        }
+      }
+
+      function deleteStudyNote(figureName, noteId) {
+        studyNotes[figureName] = studyNotes[figureName].filter(
+          (note) => note.id !== noteId
+        );
+        if (studyNotes[figureName].length === 0) {
+          delete studyNotes[figureName];
+        }
+        localStorage.setItem("studyNotes", JSON.stringify(studyNotes));
+        showNotification("Catatan berhasil dihapus", "info");
+        // Find figure index and update display
+        const figureIndex = figures.findIndex((f) => f.name === figureName);
+        if (figureIndex !== -1) {
+          updateNotesDisplay(figureIndex);
+        }
+      }
+
+      // Add flashcard functionality
+      function startFlashcards() {
+        const flashcardFigures = [...figures].sort(() => Math.random() - 0.5);
+        let currentCardIndex = 0;
+        let isFlipped = false;
+
+        function showFlashcard(index) {
+          const figure = flashcardFigures[index];
+          const flashcardModal = document.createElement("div");
+          flashcardModal.className = "flashcard-modal";
+          flashcardModal.style.cssText = `
+                    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                    background: rgba(0,0,0,0.9); z-index: 3000; display: flex;
+                    align-items: center; justify-content: center;
+                `;
+
+          flashcardModal.innerHTML = `
+                    <div class="flashcard-container" style="perspective: 1000px;">
+                        <div class="flashcard" id="currentFlashcard" style="
+                            width: 400px; height: 300px; position: relative;
+                            transform-style: preserve-3d; transition: transform 0.6s;
+                            cursor: pointer;">
+                            <div class="flashcard-front" style="
+                                position: absolute; width: 100%; height: 100%;
+                                backface-visibility: hidden; background: white;
+                                border-radius: 16px; padding: 30px; display: flex;
+                                flex-direction: column; justify-content: center; align-items: center;
+                                box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+                                <h3 style="text-align: center; color: #3b82f6;">Siapa tokoh ini?</h3>
+                                <img src="${figure.img}" alt="?" style="
+                                    width: 150px; height: 150px; object-fit: cover;
+                                    border-radius: 50%; margin: 20px 0;">
+                                <p style="text-align: center; color: #64748b;">
+                                    Wilayah: ${figure.region}
+                                </p>
+                            </div>
+                            <div class="flashcard-back" style="
+                                position: absolute; width: 100%; height: 100%;
+                                backface-visibility: hidden; background: #3b82f6; color: white;
+                                border-radius: 16px; padding: 30px; display: flex;
+                                flex-direction: column; justify-content: center; align-items: center;
+                                transform: rotateY(180deg); box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+                                <h3 style="text-align: center;">${
+                                  figure.name
+                                }</h3>
+                                <p style="text-align: center; margin: 15px 0; font-size: 0.9em;">
+                                    ${figure.bio.substring(0, 150)}...
+                                </p>
+                                <div style="text-align: center; font-size: 0.8em; opacity: 0.9;">
+                                    ${figure.works.length} Karya
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flashcard-controls" style="
+                        position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
+                        display: flex; gap: 20px;">
+                        <button onclick="previousFlashcard()" class="btn btn-secondary">← Sebelumnya</button>
+                        <button onclick="flipFlashcard()" class="btn btn-primary">🔄 Balik</button>
+                        <button onclick="nextFlashcard()" class="btn btn-secondary">Selanjutnya →</button>
+                        <button onclick="closeFlashcards()" class="btn btn-outline">Tutup</button>
+                    </div>
+                    <div class="flashcard-counter" style="
+                        position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+                        color: white; font-size: 1.1em;">
+                        ${index + 1} / ${flashcardFigures.length}
+                    </div>
+                `;
+
+          document.body.appendChild(flashcardModal);
+
+          // Add click to flip functionality
+          document
+            .getElementById("currentFlashcard")
+            .addEventListener("click", flipFlashcard);
+        }
+
+        window.flipFlashcard = function () {
+          const flashcard = document.getElementById("currentFlashcard");
+          isFlipped = !isFlipped;
+          flashcard.style.transform = isFlipped
+            ? "rotateY(180deg)"
+            : "rotateY(0deg)";
+        };
+
+        window.nextFlashcard = function () {
+          if (currentCardIndex < flashcardFigures.length - 1) {
+            currentCardIndex++;
+            isFlipped = false;
+            document.querySelector(".flashcard-modal").remove();
+            showFlashcard(currentCardIndex);
+          }
+        };
+
+        window.previousFlashcard = function () {
+          if (currentCardIndex > 0) {
+            currentCardIndex--;
+            isFlipped = false;
+            document.querySelector(".flashcard-modal").remove();
+            showFlashcard(currentCardIndex);
+          }
+        };
+
+        window.closeFlashcards = function () {
+          document.querySelector(".flashcard-modal").remove();
+          // Clean up global functions
+          delete window.flipFlashcard;
+          delete window.nextFlashcard;
+          delete window.previousFlashcard;
+          delete window.closeFlashcards;
+        };
+
+        showFlashcard(0);
+      }
+
+      // Add voice search functionality (if supported)
+      function initializeVoiceSearch() {
+        if (
+          !("webkitSpeechRecognition" in window) &&
+          !("SpeechRecognition" in window)
+        ) {
+          return; // Voice recognition not supported
+        }
+
+        const SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = "id-ID";
+
+        // const voiceButton = document.createElement("button");
+        // voiceButton.innerHTML = "";
+        // voiceButton.className = "voice-search-btn";
+        // voiceButton.style.cssText = `
+        //         position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+        //         background: none; border: none; font-size: 1.2em; cursor: pointer;
+        //         padding: 8px; border-radius: 50%; transition: background 0.3s;
+        //     `;
+
+        const searchContainer =
+          document.getElementById("searchInput").parentElement;
+        searchContainer.style.position = "relative";
+        searchContainer.appendChild(voiceButton);
+
+        voiceButton.addEventListener("click", () => {
+          voiceButton.style.background = "#ef4444";
+          voiceButton.innerHTML = "🔴";
+          recognition.start();
+        });
+
+        recognition.addEventListener("result", (event) => {
+          const transcript = event.results[0][0].transcript;
+          document.getElementById("searchInput").value = transcript;
+          handleSearch({ target: document.getElementById("searchInput") });
+          showNotification(`Pencarian suara: "${transcript}"`, "info");
+        });
+
+        recognition.addEventListener("end", () => {
+          voiceButton.style.background = "none";
+          voiceButton.innerHTML = "🎤";
+        });
+
+        recognition.addEventListener("error", (event) => {
+          console.error("Voice recognition error:", event.error);
+          voiceButton.style.background = "none";
+          voiceButton.innerHTML = "🎤";
+          showNotification("Gagal mengenali suara. Coba lagi.", "error");
+        });
+      }
+
+      // Initialize all new features when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeAutocomplete();
+        initializeReadingProgress();
+        initializeVoiceSearch();
+        updateCollectionsList();
+
+        // Add keyboard shortcuts info
+        const helpButton = document.createElement("button");
+        helpButton.innerHTML = "❓";
+        helpButton.className = "help-button";
+        helpButton.style.cssText = `
+                position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
+                background: #3b82f6; color: white; border: none; border-radius: 50%;
+                cursor: pointer; font-size: 1.2em; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 1500; transition: all 0.3s;
+            `;
+
+        helpButton.addEventListener("click", showKeyboardShortcuts);
+        document.body.appendChild(helpButton);
+      });
+
+      function showKeyboardShortcuts() {
+        const helpModal = document.createElement("div");
+        helpModal.className = "help-modal";
+        helpModal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); z-index: 3000; display: flex;
+                align-items: center; justify-content: center;
+            `;
+
+        helpModal.innerHTML = `
+                <div class="help-content" style="
+                    background: white; padding: 30px; border-radius: 16px;
+                    max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto;">
+                    <h3 style="margin-bottom: 20px;">Bantuan & Shortcut</h3>
+                    <div class="shortcuts-list">
+                        <div class="shortcut-item" style="display: flex; justify-content: space-between; margin: 10px 0; padding: 8px; background: #f8fafc; border-radius: 6px;">
+                            <span>Tutup modal</span>
+                            <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">Esc</kbd>
+                        </div>
+                        <div class="shortcut-item" style="display: flex; justify-content: space-between; margin: 10px 0; padding: 8px; background: #f8fafc; border-radius: 6px;">
+                            <span>Navigasi modal (kiri/kanan)</span>
+                            <div>
+                                <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">←</kbd>
+                                <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">→</kbd>
+                            </div>
+                        </div>
+                        <div class="shortcut-item" style="display: flex; justify-content: space-between; margin: 10px 0; padding: 8px; background: #f8fafc; border-radius: 6px;">
+                            <span>Toggle bookmark</span>
+                            <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">B</kbd>
+                        </div>
+                    </div>
+                    <h4 style="margin: 20px 0 10px 0;">Fitur Tersedia</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li style="margin: 8px 0;">🔍 Pencarian dengan autocomplete</li>
+                        <li style="margin: 8px 0;">🎤 Pencarian suara (jika didukung)</li>
+                        <li style="margin: 8px 0;">❤️ Bookmark dan koleksi</li>
+                        <li style="margin: 8px 0;">🧠 Kuis interaktif</li>
+                        <li style="margin: 8px 0;">📚 Flashcards belajar</li>
+                        <li style="margin: 8px 0;">📊 Timeline sejarah</li>
+                        <li style="margin: 8px 0;">⚖️ Perbandingan tokoh</li>
+                        <li style="margin: 8px 0;">📝 Catatan belajar</li>
+                        <li style="margin: 8px 0;">📤 Export data</li>
+                        <li style="margin: 8px 0;">🌙 Mode gelap</li>
+                    </ul>
+                    <button onclick="this.closest('.help-modal').remove()" 
+                            class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                        Tutup
+                    </button>
+                </div>
+            `;
+
+        document.body.appendChild(helpModal);
+      }
+
+      function addOfflineSupport() {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((registration) => {
+              console.log("Service Worker registered successfully");
+            })
+            .catch((error) => {
+              console.log("Service Worker registration failed");
+            });
+        }
+      }
+
+      // Initialize offline support
+      addOfflineSupport();
+
+      // Global error handler
+      window.addEventListener("error", function (e) {
+        console.error("Global error:", e.error);
+        showNotification(
+          "Terjadi kesalahan. Silakan refresh halaman.",
+          "error"
+        );
+      });
+
+      // Initialize app when DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        renderFigures(figures);
+        setupEventListeners();
+      });
+    </script>
+  </body>
 </html>
